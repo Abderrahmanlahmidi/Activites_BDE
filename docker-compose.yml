@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: ActivitiesDbContainer
+    environment:
+      MYSQL_ROOT_PASSWORD: 123123321321@instance
+      MYSQL_DATABASE: ActivitiesDb
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: 123123321321@instance
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306" 
+
+  php:
+    image: php:apache
+    container_name: ActivitiesAppContainer
+    ports:
+      - "8080:80"
+    volumes:
+      - ./html:/var/www/html
+    environment:
+      MYSQL_HOST: ActivitiesDbContainer
+      MYSQL_DATABASE: ActivitiesDb
+      MYSQL_USER: app_user 
+      MYSQL_PASSWORD: 123123321321@instance
+
+networks:
+  harvard_network:
+    driver: bridge
+
+volumes:
+  mysql_data:
