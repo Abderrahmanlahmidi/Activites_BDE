@@ -1,5 +1,5 @@
 CREATE TABLE member (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_member INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100),
     prenom VARCHAR(100),
     email VARCHAR(255) UNIQUE,
@@ -7,7 +7,7 @@ CREATE TABLE member (
     date_of_birth DATE
 );
 
-INSERT INTO member (id, nom, prenom , email , role, date_of_birth)
+INSERT INTO member (id_member, nom, prenom , email , role, date_of_birth)
 VALUES 
    (1, "yassine", "elalami", "yassine@gmail.com", "président", "2017/09/13"),
    (2, "soukaina", "elidrissi", "soukaina@gmail.com", "trésorier", "2016/04/12"),
@@ -34,14 +34,14 @@ VALUES
 
 
 CREATE TABLE participant (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_participant INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100),
     prenom VARCHAR(100),
     email VARCHAR(255) UNIQUE,
     statu VARCHAR(100)
 );
 
-INSERT INTO participant (id, nom, prenom, email, statu)
+INSERT INTO participant (id_participant, nom, prenom, email, statu)
 VALUES
     (1, "mohammed", "moulay", "moulay@gmail.com", "invite"),
     (2, "hajar", "aziz", "aziz@gmail.com", "etudiant actif"),
@@ -67,7 +67,7 @@ VALUES
 
 
 CREATE TABLE sponsore (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_sponsore INT AUTO_INCREMENT PRIMARY KEY,
     entreprise VARCHAR(100),
     contact VARCHAR(100),
     email VARCHAR(255) UNIQUE,
@@ -77,7 +77,7 @@ CREATE TABLE sponsore (
 );
 
 
-INSERT INTO sponsore (id, entreprise, contact, email, telephone, montant, list_evenment)
+INSERT INTO sponsore (id_sponsore, entreprise, contact, email, telephone, montant, list_evenment)
 VALUES
 (1, "inwi", "hamid alami", "hamid.alami@gmail.com", 0600000000, 10000, "Collecte de fonds, Association des handicapés"),
 (2, "maroc telecom", "sara benjelloun", "sara.benjelloun@gmail.com", 0611111111, 15000, "Organisation d'événements culturels"),
@@ -102,40 +102,67 @@ VALUES
 
 
 CREATE TABLE evenement (
+    id_evenement INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100),
     description VARCHAR(300),
     date VARCHAR(255) UNIQUE,
     lieu VARCHAR(300), 
-    budget int(40) NOT NULL, 
+    budget INT NOT NULL, 
     member_BDE VARCHAR(255)
 );
 
 
-INSERT INTO   (nom, description, date, lieu, budget, member_BDE) 
+INSERT INTO evenement (id_evenement, nom, description, date, lieu, budget, member_BDE) 
 VALUES
-("Gala Annuel", "Un événement prestigieux pour célébrer les réussites annuelles.", "2024-01-15", "Salle des fêtes Casablanca", 50000, "Youssef Elalami"),
-("Conférence Tech", "Une conférence sur les innovations technologiques.", "2024-02-10", "Centre des Congrès Rabat", 30000, "Salma Moulay"),
-("Atelier Développement Personnel", "Un atelier pour améliorer les compétences personnelles.", "2024-03-05", "Université Hassan II, Mohammedia", 15000, "Rachid Amrani"),
-("Tournoi de Football", "Un tournoi interuniversitaire de football.", "2024-04-20", "Stade de Marrakech", 20000, "Imane Bennis"),
-("Exposition d'Art", "Une exposition présentant des œuvres d'artistes locaux.", "2024-05-12", "Galerie d'Art Casablanca", 18000, "Omar Tahiri"),
-("Journée de Bénévolat", "Une journée dédiée aux actions caritatives.", "2024-06-18", "Village rural Chefchaouen", 8000, "Sara Elhouari"),
-("Festival de Musique", "Un festival avec des artistes nationaux et internationaux.", "2024-07-25", "Théâtre Mohammed V Rabat", 45000, "Hicham Idrissi"),
-("Hackathon 24h", "Un hackathon pour résoudre des problèmes technologiques.", "2024-08-15", "Technopark Casablanca", 25000, "Mouna Ziani"),
-("Séminaire Santé", "Un séminaire sur les solutions de santé innovantes.", "2024-09-10", "Hôpital Universitaire Marrakech", 12000, "Mohammed Belkacem"),
-("Randonnée en Montagne", "Une randonnée pour découvrir les montagnes de l'Atlas.", "2024-10-05", "Imlil, Toubkal", 6000, "Khalid Rachidi"),
-("Salon de l'Innovation", "Présentation des projets innovants des étudiants.", "2024-11-01", "Parc Technologique Rabat", 40000, "Fatima Zerouali"),
-("Foire Alimentaire", "Une foire pour promouvoir la gastronomie locale.", "2024-12-22", "Place Jamaa El Fna", 10000, "Yassine Elhadi"),
-("Campagne Écologique", "Une campagne de plantation d'arbres.", "2024-01-10", "Forêt Maamora", 5000, "Samira Boutaleb"),
-("Concours de Débat", "Un concours de débat pour les étudiants.", "2024-02-17", "Université Al Akhawayn", 8000, "Rachid Nouiri"),
-("Stage de Yoga", "Un stage de yoga pour le bien-être des participants.", "2024-03-08", "Centre de Yoga Marrakech", 7000, "Amina Safi"),
-("Tournoi d'Échecs", "Un tournoi d'échecs pour amateurs et professionnels.", "2024-04-15", "Espace Culturel Casablanca", 9000, "Othmane Lahmidi"),
-("Conférence Éducation", "Une conférence sur les nouvelles méthodologies éducatives.", "2024-05-20", "Université Abdelmalek Essaâdi Tétouan", 20000, "Hajar Elalami"),
-("Bal de Fin d'Année", "Un bal pour célébrer la fin de l'année scolaire.", "2024-06-30", "Hôtel Royal Mansour Marrakech", 30000, "Nabil Essaidi"),
-("Festival Cinéma", "Un festival de courts métrages réalisés par des étudiants.", "2024-07-18", "Cinéma Colisée Casablanca", 35000, "Laila Bennani"),
-("Journée Sportive", "Une journée avec diverses activités sportives.", "2024-08-25", "Complexe Sportif Rabat", 10000, "Mehdi Chafik");
+(1, "Gala Annuel", "Un événement prestigieux pour célébrer les réussites annuelles.", "2024-01-15", "Salle des fêtes Casablanca", 50000, "Youssef Elalami"),
+(2, "Conférence Tech", "Une conférence sur les innovations technologiques.", "2024-02-10", "Centre des Congrès Rabat", 30000, "Salma Moulay"),
+(3, "Atelier Développement Personnel", "Un atelier pour améliorer les compétences personnelles.", "2024-03-05", "Université Hassan II, Mohammedia", 15000, "Rachid Amrani"),
+(4, "Tournoi de Football", "Un tournoi interuniversitaire de football.", "2024-04-20", "Stade de Marrakech", 20000, "Imane Bennis"),
+(5, "Exposition d'Art", "Une exposition présentant des œuvres d'artistes locaux.", "2024-05-12", "Galerie d'Art Casablanca", 18000, "Omar Tahiri"),
+(6, "Journée de Bénévolat", "Une journée dédiée aux actions caritatives.", "2024-06-18", "Village rural Chefchaouen", 8000, "Sara Elhouari"),
+(7, "Festival de Musique", "Un festival avec des artistes nationaux et internationaux.", "2024-07-25", "Théâtre Mohammed V Rabat", 45000, "Hicham Idrissi"),
+(8, "Hackathon 24h", "Un hackathon pour résoudre des problèmes technologiques.", "2024-08-15", "Technopark Casablanca", 25000, "Mouna Ziani"),
+(9, "Séminaire Santé", "Un séminaire sur les solutions de santé innovantes.", "2024-09-10", "Hôpital Universitaire Marrakech", 12000, "Mohammed Belkacem"),
+(10, "Randonnée en Montagne", "Une randonnée pour découvrir les montagnes de l'Atlas.", "2024-10-05", "Imlil, Toubkal", 6000, "Khalid Rachidi"),
+(11, "Salon de l'Innovation", "Présentation des projets innovants des étudiants.", "2024-11-01", "Parc Technologique Rabat", 40000, "Fatima Zerouali"),
+(12, "Foire Alimentaire", "Une foire pour promouvoir la gastronomie locale.", "2024-12-22", "Place Jamaa El Fna", 10000, "Yassine Elhadi"),
+(13, "Campagne Écologique", "Une campagne de plantation d'arbres.", "2024-01-10", "Forêt Maamora", 5000, "Samira Boutaleb"),
+(14, "Concours de Débat", "Un concours de débat pour les étudiants.", "2024-02-17", "Université Al Akhawayn", 8000, "Rachid Nouiri"),
+(15, "Stage de Yoga", "Un stage de yoga pour le bien-être des participants.", "2024-03-08", "Centre de Yoga Marrakech", 7000, "Amina Safi"),
+(16, "Tournoi d'Échecs", "Un tournoi d'échecs pour amateurs et professionnels.", "2024-04-15", "Espace Culturel Casablanca", 9000, "Othmane Lahmidi"),
+(17, "Conférence Éducation", "Une conférence sur les nouvelles méthodologies éducatives.", "2024-05-20", "Université Abdelmalek Essaâdi Tétouan", 20000, "Hajar Elalami"),
+(18, "Bal de Fin d'Année", "Un bal pour célébrer la fin de l'année scolaire.", "2024-06-30", "Hôtel Royal Mansour Marrakech", 30000, "Nabil Essaidi"),
+(19, "Festival Cinéma", "Un festival de courts métrages réalisés par des étudiants.", "2024-07-18", "Cinéma Colisée Casablanca", 35000, "Laila Bennani"),
+(20, "Journée Sportive", "Une journée avec diverses activités sportives.", "2024-08-25", "Complexe Sportif Rabat", 10000, "Mehdi Chafik");
+
+
+
+CREATE TABLE memberEvenment(
+    id_memberEventment INT PRIMARY KEY AUTO_INCREMENT,
+    id_member INT,
+    id_evenement INT,
+    FOREIGN KEY(id_member) REFERENCES member(id_member),
+    FOREIGN KEY(id_evenement) REFERENCES evenement(id_evenement)
+);
+CREATE TABLE participantEvenment(
+    id_participantEvenment INT PRIMARY KEY AUTO_INCREMENT,
+    id_participant INT,
+    id_evenement INT,
+    FOREIGN KEY(id_participant) REFERENCES participant(id_participant),
+    FOREIGN KEY(id_evenement) REFERENCES evenement(id_evenement)
+);
+CREATE TABLE sponsoreEvenment(
+    id_sponsoreEvenment INT PRIMARY KEY AUTO_INCREMENT,
+    id_sponsore INT,
+    id_evenement INT,
+    FOREIGN KEY(id_sponsore) REFERENCES sponsore(id_sponsore),
+    FOREIGN KEY(id_evenement) REFERENCES evenement(id_evenement)
+);
+
+-- Lister tous les événements prévus après une date donnée.
+SELECT * FROM evenement WHERE date < "2024-07-25";
 
 
 
 
 
- 

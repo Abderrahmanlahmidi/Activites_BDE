@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="3SSiPk3ZfK-V3exO8voK" name="Page-1">
-        <mxGraphModel dx="605" dy="411" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="810" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -155,7 +155,7 @@
                     <mxGeometry x="384.9998988186703" y="460.0016697643731" width="40" height="20.75" as="geometry"/>
                 </mxCell>
                 <mxCell id="69" value="MLD" style="swimlane;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="1" vertex="1">
-                    <mxGeometry x="220" y="40" width="370" height="230" as="geometry"/>
+                    <mxGeometry x="230" y="50" width="370" height="230" as="geometry"/>
                 </mxCell>
                 <mxCell id="70" value="member(id, nom, prenom, email, role, date)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="69" vertex="1">
                     <mxGeometry x="5" y="30" width="250" height="30" as="geometry"/>
@@ -163,20 +163,20 @@
                 <mxCell id="72" value="evenement(nom, description, date, lieu, budget, member BDE )" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="69" vertex="1">
                     <mxGeometry x="-1" y="81" width="360" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="73" value="organization(#idmember, #date)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="69" vertex="1">
-                    <mxGeometry x="2" y="56" width="190" height="30" as="geometry"/>
+                <mxCell id="73" value="&lt;font color=&quot;#ff0000&quot;&gt;organization(#idmember, #idevement)&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="69" vertex="1">
+                    <mxGeometry x="5" y="51" width="220" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="74" value="participant(id, nom, prenom, email, status)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="69" vertex="1">
                     <mxGeometry x="-2" y="108" width="250" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="75" value="participer(#idparticipant, #date)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="69" vertex="1">
-                    <mxGeometry x="-3" y="135" width="190" height="30" as="geometry"/>
+                <mxCell id="75" value="&lt;font color=&quot;#ff0000&quot;&gt;participer(#idparticipant,#idevement)&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="69" vertex="1">
+                    <mxGeometry x="-1" y="135" width="220" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="76" value="sponsor(id, entreprise, contact, cordonne, montant, listevenment)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="69" vertex="1">
                     <mxGeometry x="-2" y="165" width="370" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="77" value="sponsoriser(#idsponsore, #date)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="69" vertex="1">
-                    <mxGeometry x="-3" y="190" width="200" height="30" as="geometry"/>
+                <mxCell id="77" value="&lt;font color=&quot;#ff0000&quot;&gt;sponsoriser(#idsponsore, #idevement)&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="69" vertex="1">
+                    <mxGeometry x="-3" y="190" width="230" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
