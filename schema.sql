@@ -169,6 +169,13 @@ SELECT * FROM evenement WHERE budget < 5000
 SELECT * FROM evenement WHERE member_BDE = "Youssef Elalami";
 
 -- Calculer la moyenne du budget des événements organisés.
-SELECT * FROM evenement WHERE SUM(montant) ;
+SELECT SUM(montant) / COUNT(*)  AS "moyene is:" FROM sponsore;
+
+-- Lister les événements qui se déroulent dans un lieu donné. 
+SELECT * FROM evenement WHERE lieu = "Centre des Congrs Rabat";
+
+-- Afficher les noms des sponsors ayant contribué à plus d’un événement.
+SELECT * FROM sponsore WHERE contact = "hamid alami";
+
 
 
