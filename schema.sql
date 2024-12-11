@@ -152,7 +152,7 @@ CREATE TABLE participantEvenment(
     FOREIGN KEY(id_evenement) REFERENCES evenement(id_evenement)
 );
 CREATE TABLE sponsoreEvenment(
-    id_sponsoreEvenment INT PRIMARY KEY AUTO_INCREMENT,
+    id_sponsoreEvenment INT PRIMARY KEY AUTO_INCREMENT, 
     id_sponsore INT,
     id_evenement INT,
     FOREIGN KEY(id_sponsore) REFERENCES sponsore(id_sponsore),
@@ -160,9 +160,15 @@ CREATE TABLE sponsoreEvenment(
 );
 
 -- Lister tous les événements prévus après une date donnée.
-SELECT * FROM evenement WHERE date < "2024-07-25";
+SELECT * FROM evenement WHERE date < "2024-07-25"
 
+-- Afficher les informations des événements ayant un budget supérieur à 5000 MAD.
+SELECT * FROM evenement WHERE budget < 5000
 
+-- Compter le nombre total d’événements organisés par le BDE.
+SELECT * FROM evenement WHERE member_BDE = "Youssef Elalami";
 
+-- Calculer la moyenne du budget des événements organisés.
+SELECT * FROM evenement WHERE SUM(montant) ;
 
 
